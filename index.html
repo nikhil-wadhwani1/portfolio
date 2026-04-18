@@ -1,119 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikhil Wadhwani | Cybersecurity & SOC</title>
+    <title>Nikhil Wadhwani | Digital Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    
+
     <style>
         :root {
             --bg: #030712;
             --card-bg: #111827;
-            --accent: #38bdf8; /* Cyber Blue */
+            --accent: #38bdf8;
             --text-main: #f3f4f6;
             --text-dim: #9ca3af;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-        /* Smooth Background Gradient */
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
         .gradient-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: radial-gradient(circle at 50% 50%, #1e293b 0%, #030712 100%);
             z-index: -1;
         }
 
-        section { padding: 100px 10%; max-width: 1200px; margin: 0 auto; }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 10%;
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-        /* Hero Section */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
-        h1 { font-size: 4rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 10px; }
-        .accent-text { color: var(--accent); }
-        .hero p { font-size: 1.5rem; color: var(--text-dim); margin-bottom: 30px; }
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        section {
+            padding: 100px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .accent-text {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-dim);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
 
         .btn {
-            padding: 12px 30px; border: 1px solid var(--accent); color: var(--accent);
-            text-decoration: none; border-radius: 8px; font-weight: 600;
+            padding: 12px 30px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
             transition: all 0.3s ease;
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
         }
-        .btn:hover { background: var(--accent); color: var(--bg); box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
 
-        /* Grid Layout for Projects */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 40px; }
-        .card { 
-            background: var(--card-bg); padding: 30px; border-radius: 15px; 
-            border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;
+        .btn:hover {
+            background: var(--accent);
+            color: var(--bg);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
         }
-        .card:hover { transform: translateY(-10px); border-color: var(--accent); }
+
+        /* Grids & Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .date-badge {
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 10px;
+        }
 
         .skill-tag {
-            display: inline-block; background: rgba(56, 189, 248, 0.1);
-            color: var(--accent); padding: 5px 12px; border-radius: 20px;
-            font-size: 0.8rem; margin: 5px; font-weight: 600;
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 5px 5px 5px 0;
+            font-weight: 600;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            nav {
+                display: none;
+                /* Hide nav on mobile to save space */
+            }
+        }
     </style>
 </head>
+
 <body>
 
-<div class="gradient-bg"></div>
+    <div class="gradient-bg"></div>
 
-<section class="hero" data-aos="fade-up">
-    <p>Hi, I am</p>
-    <h1>Nikhil <span class="accent-text">Wadhwani.</span></h1>
-    <p>Cybersecurity Analyst & SOC Specialist.</p>
-    <div>
-        <a href="#work" class="btn">View My Work</a>
-        <a href="resume.pdf" class="btn" style="margin-left: 10px;">Resume</a>
-    </div>
-</section>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+    </nav>
 
-<section id="work" data-aos="fade-up">
-    <h2 style="font-size: 2rem; margin-bottom: 40px;">Featured <span class="accent-text">Experience</span></h2>
-    <div class="grid">
-        <div class="card">
-            <h3>SOC Operations</h3>
-            <p style="color: var(--text-dim); margin-top: 10px;">Currently automating report triage and sensor deployment. Transforming raw alerts into actionable intelligence.</p>
-            <div style="margin-top: 15px;">
-                <span class="skill-tag">CrowdStrike</span> <span class="skill-tag">Splunk</span>
+    <section class="hero" id="about" data-aos="fade-up">
+        <p style="color: var(--accent); font-weight: 600; margin-bottom: 10px;">Hi, I am</p>
+        <h1>Nikhil <br><span class="accent-text">Wadhwani.</span></h1>
+        <p>B.Tech Computer Science (Cybersecurity) student at DY Patil International University. I specialize in SOC
+            operations, automation, and full-stack development, bringing a well-rounded engineering approach to threat
+            detection.</p>
+        <div>
+            <a href="#experience" class="btn">Explore My Work</a>
+            <a href="resume.pdf" class="btn">Download Resume</a>
+        </div>
+    </section>
+
+    <section id="experience" data-aos="fade-up">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Work <span class="accent-text">Experience</span></h2>
+        <div class="grid">
+            <div class="card">
+                <span class="date-badge">Jan 2026 - Present</span>
+                <h3>Cybersecurity Intern (SOC)</h3>
+                <p style="color: #fff; font-weight: 600;">Amazure Technologies</p>
+                <p style="color: var(--text-dim); margin-top: 10px; font-size: 0.95rem;">Performing active alert triage,
+                    sensor deployment, and analyzing security events. Currently developing an automated SOC report
+                    comparison tool to optimize intelligence formatting for clients.</p>
+            </div>
+            <div class="card">
+                <span class="date-badge">Jul 2024 - Sep 2024</span>
+                <h3>Web Development Intern</h3>
+                <p style="color: #fff; font-weight: 600;">Agrawal Creations</p>
+                <p style="color: var(--text-dim); margin-top: 10px; font-size: 0.95rem;">Designed and deployed front-end
+                    architectures for client projects, including the Elite Motion sports center website. Handled UI/UX
+                    optimization and cross-browser compatibility.</p>
             </div>
         </div>
-        <div class="card">
-            <h3>StegIntel Research</h3>
-            <p style="color: var(--text-dim); margin-top: 10px;">AI-driven steganography detection tool accepted at IEEE-INSECT 2026. Detecting hidden threats in multimedia.</p>
-            <div style="margin-top: 15px;">
-                <span class="skill-tag">Python</span> <span class="skill-tag">Forensics</span>
+    </section>
+
+    <section id="projects" data-aos="fade-up">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Featured <span class="accent-text">Projects</span></h2>
+        <div class="grid">
+            <div class="card">
+                <h3>SOC Automation Engine</h3>
+                <p style="color: var(--text-dim); margin-top: 10px; font-size: 0.95rem;">A script-based tool designed to
+                    compare and evaluate different output formats of SOC automation reports, streamlining the process of
+                    threat data review.</p>
+                <div style="margin-top: 15px;">
+                    <span class="skill-tag">Cybersecurity</span> <span class="skill-tag">Automation</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>AI Snake Game</h3>
+                <p style="color: var(--text-dim); margin-top: 10px; font-size: 0.95rem;">Engineered an autonomous agent
+                    using Reinforcement Learning. Implemented training loops that allow the AI to learn optimal pathing
+                    and survival strategies over time.</p>
+                <div style="margin-top: 15px;">
+                    <span class="skill-tag">Python</span> <span class="skill-tag">Machine Learning</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>StegIntel</h3>
+                <p style="color: var(--text-dim); margin-top: 10px; font-size: 0.95rem;">Research-based AI tool for
+                    detecting hidden data within multimedia files. Paper accepted and published at the IEEE-INSECT 2026
+                    conference.</p>
+                <div style="margin-top: 15px;">
+                    <span class="skill-tag">Random Forest</span> <span class="skill-tag">CNN</span>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section data-aos="fade-up">
-    <h2 style="font-size: 2rem; margin-bottom: 20px;">Skills & <span class="accent-text">Certs</span></h2>
-    <div>
-        <span class="skill-tag">Microsoft SC-900</span>
-        <span class="skill-tag">AWS Cloud Practitioner</span>
-        <span class="skill-tag">Hack The Box</span>
-        <span class="skill-tag">C++</span>
-        <span class="skill-tag">Threat Hunting</span>
-    </div>
-</section>
+    <section id="skills" data-aos="fade-up">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Tech <span class="accent-text">Arsenal</span></h2>
 
-<section style="text-align: center;" data-aos="fade-up">
-    <h2>Let's Secure Something Together.</h2>
-    <p style="margin: 20px 0; color: var(--text-dim);">nikhil.wadhwani@email.com</p>
-    <a href="mailto:your-email@gmail.com" class="btn">Get In Touch</a>
-</section>
+        <h3 style="margin-top: 20px; font-size: 1.2rem;">Certifications</h3>
+        <div style="margin-bottom: 20px;">
+            <span class="skill-tag">Microsoft SC-900</span>
+            <span class="skill-tag">AWS Cloud Practitioner</span>
+        </div>
 
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-    AOS.init({ duration: 1000, once: true });
-</script>
+        <h3 style="margin-top: 20px; font-size: 1.2rem;">Languages & Frameworks</h3>
+        <div style="margin-bottom: 20px;">
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">HTML/CSS</span>
+        </div>
+
+        <h3 style="margin-top: 20px; font-size: 1.2rem;">Security & Operations</h3>
+        <div>
+            <span class="skill-tag">CrowdStrike</span>
+            <span class="skill-tag">Splunk</span>
+            <span class="skill-tag">Hack The Box</span>
+            <span class="skill-tag">Alert Triage</span>
+        </div>
+    </section>
+
+    <section style="text-align: center; padding-bottom: 150px;" data-aos="fade-up">
+        <h2 style="font-size: 3rem;">Ready to Connect?</h2>
+        <p style="margin: 20px 0; color: var(--text-dim); font-size: 1.2rem;">Drop an email or connect on LinkedIn.</p>
+        <a href="mailto:your-email@gmail.com" class="btn">Email Me</a>
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
 
 </body>
+
 </html>
