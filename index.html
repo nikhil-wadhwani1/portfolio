@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikhil Wadhwani | Digital Portfolio</title>
+    <title>Nikhil Wadhwani | Cybersecurity & Engineering Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
@@ -13,6 +13,8 @@
             --bg: #030712;
             --card-bg: #111827;
             --accent: #38bdf8;
+            --accent-green: #10b981;
+            /* For active/completed statuses */
             --text-main: #f3f4f6;
             --text-dim: #9ca3af;
         }
@@ -29,6 +31,7 @@
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         .gradient-bg {
@@ -52,7 +55,7 @@
             z-index: 100;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -62,6 +65,8 @@
             font-size: 0.9rem;
             font-weight: 600;
             transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         nav a:hover {
@@ -69,7 +74,7 @@
         }
 
         section {
-            padding: 100px 10%;
+            padding: 120px 10% 60px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -80,10 +85,11 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding-top: 0;
         }
 
         h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 800;
             letter-spacing: -2px;
             margin-bottom: 10px;
@@ -95,10 +101,10 @@
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--text-dim);
             margin-bottom: 30px;
-            max-width: 600px;
+            max-width: 700px;
         }
 
         .btn {
@@ -110,7 +116,7 @@
             font-weight: 600;
             transition: all 0.3s ease;
             display: inline-block;
-            margin-right: 10px;
+            margin-right: 15px;
             margin-bottom: 10px;
         }
 
@@ -124,21 +130,24 @@
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
+            gap: 25px;
             margin-top: 30px;
         }
 
         .card {
             background: var(--card-bg);
-            padding: 30px;
+            padding: 35px;
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.1);
         }
 
         .date-badge {
@@ -148,28 +157,54 @@
             font-weight: 600;
             letter-spacing: 1px;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .skill-container {
+            margin-top: auto;
+            padding-top: 20px;
         }
 
         .skill-tag {
             display: inline-block;
             background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
             color: var(--accent);
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.85rem;
-            margin: 5px 5px 5px 0;
+            margin: 5px 5px 0 0;
             font-weight: 600;
+        }
+
+        /* Specific Lists inside cards */
+        ul.job-details {
+            list-style: none;
+            margin-top: 15px;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        ul.job-details li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        ul.job-details li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
 
             nav {
                 display: none;
-                /* Hide nav on mobile to save space */
             }
         }
     </style>
@@ -183,106 +218,173 @@
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+        <a href="#arsenal">Arsenal</a>
     </nav>
 
     <section class="hero" id="about" data-aos="fade-up">
-        <p style="color: var(--accent); font-weight: 600; margin-bottom: 10px;">Hi, I am</p>
+        <p
+            style="color: var(--accent); font-weight: 600; margin-bottom: 10px; font-family: monospace; font-size: 1.1rem;">
+            > INITIALIZING PROFILE...</p>
         <h1>Nikhil <br><span class="accent-text">Wadhwani.</span></h1>
-        <p>B.Tech Computer Science (Cybersecurity) student at DY Patil International University. I specialize in SOC
-            operations, automation, and full-stack development, bringing a well-rounded engineering approach to threat
-            detection.</p>
+        <p>B.Tech Computer Science (Cybersecurity) student at DY Patil International University. Specializing in Threat
+            Detection, SOC Operations, and Secure Full-Stack Development. Bridging the gap between offensive techniques
+            and enterprise-grade defense.</p>
         <div>
-            <a href="#experience" class="btn">Explore My Work</a>
+            <a href="#experience" class="btn">Explore Work</a>
             <a href="resume.pdf" class="btn">Download Resume</a>
         </div>
     </section>
 
     <section id="experience" data-aos="fade-up">
-        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Work <span class="accent-text">Experience</span></h2>
+        <h2 style="font-size: 2.5rem; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 10px;">
+            Professional <span class="accent-text">Experience</span></h2>
         <div class="grid">
+
             <div class="card">
                 <span class="date-badge">Jan 2026 - Present</span>
                 <h3>Cybersecurity Intern (SOC)</h3>
-                <p style="color: #fff; font-weight: 600;">Amazure Technologies</p>
-                <p style="color: var(--text-dim); margin-top: 10px; font-size: 0.95rem;">Performing active alert triage,
-                    sensor deployment, and analyzing security events. Currently developing an automated SOC report
-                    comparison tool to optimize intelligence formatting for clients.</p>
+                <p style="color: #fff; font-weight: 600; font-size: 1.1rem;">Amazure Technologies</p>
+                <ul class="job-details">
+                    <li>Executing SOC L1/L2 operations, performing alert triage and endpoint investigations.</li>
+                    <li>Deploying and tuning detection policies across enterprise networks to validate true positives
+                        and track lateral movement.</li>
+                    <li>Engineering automated incident response workflows utilizing Fusion SOAR.</li>
+                </ul>
+                <div class="skill-container">
+                    <span class="skill-tag">CrowdStrike EDR</span> <span class="skill-tag">Splunk</span> <span
+                        class="skill-tag">Fusion SOAR</span>
+                </div>
             </div>
+
+            <div class="card">
+                <span class="date-badge">Summer 2025</span>
+                <h3>Cybersecurity Research Intern</h3>
+                <p style="color: #fff; font-weight: 600; font-size: 1.1rem;">COEP Technological University</p>
+                <ul class="job-details">
+                    <li>Engineered LSB brute-force decoding, payload extraction, and automated post-processing for
+                        forensics.</li>
+                    <li>Researched CNN-based feature learning for advanced steganalysis.</li>
+                    <li>Achieved paper acceptance for IEEE-INSECT 2026.</li>
+                </ul>
+                <div class="skill-container">
+                    <span class="skill-tag">Digital Forensics</span> <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Python</span>
+                </div>
+            </div>
+
             <div class="card">
                 <span class="date-badge">Jul 2024 - Sep 2024</span>
                 <h3>Web Development Intern</h3>
-                <p style="color: #fff; font-weight: 600;">Agrawal Creations</p>
-                <p style="color: var(--text-dim); margin-top: 10px; font-size: 0.95rem;">Designed and deployed front-end
-                    architectures for client projects, including the Elite Motion sports center website. Handled UI/UX
-                    optimization and cross-browser compatibility.</p>
+                <p style="color: #fff; font-weight: 600; font-size: 1.1rem;">Agrawal Creations</p>
+                <ul class="job-details">
+                    <li>Developed secure admin control panels with robust authentication and SQLi/XSS mitigation.</li>
+                    <li>Designed and deployed front-end architectures for clients, including the Elite Motion sports
+                        center website.</li>
+                </ul>
+                <div class="skill-container">
+                    <span class="skill-tag">PHP</span> <span class="skill-tag">MySQL</span> <span
+                        class="skill-tag">Secure Coding</span>
+                </div>
             </div>
+
         </div>
     </section>
 
     <section id="projects" data-aos="fade-up">
-        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Featured <span class="accent-text">Projects</span></h2>
+        <h2 style="font-size: 2.5rem; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Featured
+            <span class="accent-text">Builds & Research</span></h2>
         <div class="grid">
-            <div class="card">
-                <h3>SOC Automation Engine</h3>
-                <p style="color: var(--text-dim); margin-top: 10px; font-size: 0.95rem;">A script-based tool designed to
-                    compare and evaluate different output formats of SOC automation reports, streamlining the process of
-                    threat data review.</p>
-                <div style="margin-top: 15px;">
-                    <span class="skill-tag">Cybersecurity</span> <span class="skill-tag">Automation</span>
-                </div>
-            </div>
-            <div class="card">
-                <h3>AI Snake Game</h3>
-                <p style="color: var(--text-dim); margin-top: 10px; font-size: 0.95rem;">Engineered an autonomous agent
-                    using Reinforcement Learning. Implemented training loops that allow the AI to learn optimal pathing
-                    and survival strategies over time.</p>
-                <div style="margin-top: 15px;">
-                    <span class="skill-tag">Python</span> <span class="skill-tag">Machine Learning</span>
-                </div>
-            </div>
+
             <div class="card">
                 <h3>StegIntel</h3>
-                <p style="color: var(--text-dim); margin-top: 10px; font-size: 0.95rem;">Research-based AI tool for
-                    detecting hidden data within multimedia files. Paper accepted and published at the IEEE-INSECT 2026
-                    conference.</p>
-                <div style="margin-top: 15px;">
-                    <span class="skill-tag">Random Forest</span> <span class="skill-tag">CNN</span>
+                <p style="color: var(--text-dim); margin-top: 15px; font-size: 0.95rem;">An AI-driven steganography
+                    detection tool utilizing Random Forest classification to identify hidden threats in multimedia
+                    files. Includes automated forensic report generation.</p>
+                <div class="skill-container">
+                    <span class="skill-tag">AI/ML</span> <span class="skill-tag">CNN</span> <span
+                        class="skill-tag">Forensics</span>
                 </div>
             </div>
+
+            <div class="card">
+                <h3>SOC Reporting Automation</h3>
+                <p style="color: var(--text-dim); margin-top: 15px; font-size: 0.95rem;">Actively developing an internal
+                    tool to evaluate, compare, and optimize the output formats of automated SOC alerts, streamlining how
+                    intelligence is delivered to clients.</p>
+                <div class="skill-container">
+                    <span class="skill-tag">SecOps</span> <span class="skill-tag">Workflow Automation</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Autonomous AI Agent</h3>
+                <p style="color: var(--text-dim); margin-top: 15px; font-size: 0.95rem;">Engineered an autonomous Snake
+                    game agent utilizing Reinforcement Learning. Built custom training loops allowing the AI to
+                    independently learn pathing and survival strategies.</p>
+                <div class="skill-container">
+                    <span class="skill-tag">Python</span> <span class="skill-tag">Reinforcement Learning</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="skills" data-aos="fade-up">
-        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Tech <span class="accent-text">Arsenal</span></h2>
+    <section id="arsenal" data-aos="fade-up">
+        <h2 style="font-size: 2.5rem; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Technical
+            <span class="accent-text">Arsenal</span></h2>
 
-        <h3 style="margin-top: 20px; font-size: 1.2rem;">Certifications</h3>
-        <div style="margin-bottom: 20px;">
-            <span class="skill-tag">Microsoft SC-900</span>
-            <span class="skill-tag">AWS Cloud Practitioner</span>
-        </div>
+        <div
+            style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
 
-        <h3 style="margin-top: 20px; font-size: 1.2rem;">Languages & Frameworks</h3>
-        <div style="margin-bottom: 20px;">
-            <span class="skill-tag">C</span>
-            <span class="skill-tag">C++</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">HTML/CSS</span>
-        </div>
+            <div>
+                <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.2rem;">Detection & Response</h3>
+                <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.8;">
+                    CrowdStrike Falcon (EDR, ITP, SIEM)<br>
+                    Splunk & Wazuh<br>
+                    Trend Micro<br>
+                    MITRE ATT&CK Framework<br>
+                    Alert Triage (L1/L2)
+                </p>
+            </div>
 
-        <h3 style="margin-top: 20px; font-size: 1.2rem;">Security & Operations</h3>
-        <div>
-            <span class="skill-tag">CrowdStrike</span>
-            <span class="skill-tag">Splunk</span>
-            <span class="skill-tag">Hack The Box</span>
-            <span class="skill-tag">Alert Triage</span>
+            <div>
+                <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.2rem;">Offensive & Forensics</h3>
+                <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.8;">
+                    Nmap & Metasploit<br>
+                    Wireshark & PCAP Analysis<br>
+                    DFIR Workflow<br>
+                    Malware Analysis (PE Studio)<br>
+                    Web Vulnerabilities (SQLi/XSS)
+                </p>
+            </div>
+
+            <div>
+                <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.2rem;">Systems & Cloud</h3>
+                <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.8;">
+                    Python, C/C++, Bash, SQL<br>
+                    Linux & Windows<br>
+                    AWS & Azure
+                </p>
+            </div>
+
+            <div>
+                <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.2rem;">Certifications</h3>
+                <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.8;">
+                    <span style="color: var(--accent-green);">✓</span> Microsoft SC-900<br>
+                    <span style="color: var(--accent);">⟳</span> AWS Cloud Practitioner<br>
+                    <span style="color: var(--accent);">⟳</span> Hack The Box Penetration Path
+                </p>
+            </div>
+
         </div>
     </section>
 
-    <section style="text-align: center; padding-bottom: 150px;" data-aos="fade-up">
-        <h2 style="font-size: 3rem;">Ready to Connect?</h2>
-        <p style="margin: 20px 0; color: var(--text-dim); font-size: 1.2rem;">Drop an email or connect on LinkedIn.</p>
-        <a href="mailto:your-email@gmail.com" class="btn">Email Me</a>
+    <section style="text-align: center; padding-bottom: 120px;" data-aos="fade-up">
+        <h2 style="font-size: 3rem;">Let's Secure the Network.</h2>
+        <p style="margin: 20px 0 30px; color: var(--text-dim); font-size: 1.1rem;">nikwadhwani2004@gmail.com | +91
+            9422862174</p>
+        <a href="mailto:nikwadhwani2004@gmail.com" class="btn">Send an Email</a>
+        <a href="https://linkedin.com/in/nikhil-wadhwani" target="_blank" class="btn">LinkedIn</a>
     </section>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
