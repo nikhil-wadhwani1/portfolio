@@ -816,45 +816,164 @@
         }
 
         /* ===== SKILLS SECTION ===== */
+        .skills-section {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            max-width: 1400px;
+        }
+
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 28px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .skill-category.cat-blue::before {
+            background: linear-gradient(180deg, var(--accent), rgba(56, 189, 248, 0.3));
+        }
+
+        .skill-category.cat-green::before {
+            background: linear-gradient(180deg, var(--accent-green), rgba(16, 185, 129, 0.3));
+        }
+
+        .skill-category.cat-purple::before {
+            background: linear-gradient(180deg, var(--accent-purple), rgba(167, 139, 250, 0.3));
+        }
+
+        .skill-category.cat-rose::before {
+            background: linear-gradient(180deg, var(--accent-rose), rgba(251, 113, 133, 0.3));
+        }
+
+        .skill-category.cat-amber::before {
+            background: linear-gradient(180deg, var(--accent-amber), rgba(245, 158, 11, 0.3));
+        }
+
+        .skill-category.cat-cyan::before {
+            background: linear-gradient(180deg, #22d3ee, rgba(34, 211, 238, 0.3));
+        }
+
+        .skill-category:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(56, 189, 248, 0.05);
+        }
+
+        .skill-category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .skill-category-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .skill-category-icon.sc-blue {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+        }
+
+        .skill-category-icon.sc-green {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-green);
+        }
+
+        .skill-category-icon.sc-purple {
+            background: rgba(167, 139, 250, 0.1);
+            color: var(--accent-purple);
+        }
+
+        .skill-category-icon.sc-rose {
+            background: rgba(251, 113, 133, 0.1);
+            color: var(--accent-rose);
+        }
+
+        .skill-category-icon.sc-amber {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent-amber);
+        }
+
+        .skill-category-icon.sc-cyan {
+            background: rgba(34, 211, 238, 0.1);
+            color: #22d3ee;
         }
 
         .skill-category h3 {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-dim);
-            margin-bottom: 20px;
-            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: var(--text-main);
+            font-weight: 700;
+            line-height: 1.3;
         }
 
         .skill-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
 
         .skill-pill {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.78rem;
-            padding: 8px 18px;
+            font-size: 0.74rem;
+            padding: 8px 16px;
             border-radius: 8px;
-            background: var(--glass);
-            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-main);
             transition: all 0.3s ease;
             cursor: default;
+            font-weight: 500;
         }
 
         .skill-pill:hover {
             border-color: var(--border-hover);
-            background: rgba(56, 189, 248, 0.08);
+            background: rgba(56, 189, 248, 0.1);
             color: var(--accent);
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.1);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.12);
+        }
+
+        @media (max-width: 1024px) {
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* ===== CONTACT SECTION ===== */
@@ -874,10 +993,16 @@
             margin-bottom: 20px;
         }
 
-        .contact-location {
+        .contact-phone {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
             color: var(--text-dim);
             margin-bottom: 36px;
-            font-size: 0.9rem;
+        }
+
+        .contact-phone i {
+            color: var(--accent);
+            margin-right: 6px;
         }
 
         .contact-links {
@@ -1017,7 +1142,7 @@
         </h1>
 
         <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-            <strong>Cybersecurity</strong> student — <strong>SOC operations</strong>, <strong>threat detection</strong>, <strong>DFIR</strong>, and <strong>security tooling</strong>. Building real-world tools like <strong>StegIntel</strong>, automating <strong>SOC workflows</strong>, and securing <strong>enterprise-grade systems</strong>.
+            Specializing in <strong>SOC operations</strong>, <strong>threat detection</strong>, <strong>DFIR</strong>, and <strong>security tooling</strong>. Currently securing <strong>enterprise-grade systems</strong> and automating <strong>SOC workflows</strong> at Amazure Technologies.
         </p>
 
         <div class="hero-cta" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
@@ -1068,10 +1193,10 @@
                     <ul>
                         <li><strong>SOC L1/L2 alert triage</strong> and deep-dive <strong>EDR investigations</strong> (process trees, parent-child analysis).</li>
                         <li>Endpoint & identity threats using <strong>CrowdStrike Falcon</strong>, <strong>Trend Micro</strong>, <strong>Splunk</strong>, and <strong>Wazuh</strong>.</li>
-                        <li><strong>Incident reporting</strong> and client-facing technical documentation of alerts & remediation workflows.</li>
+                        <li><strong>Client-facing technical liaison</strong> — delivered clear incident explanations, remediation guidance, and security posture updates to non-technical stakeholders. Owned daily client communication cadence, ensuring transparency on alert statuses, policy changes, and ongoing threat landscape.</li>
                         <li>Deployed and tuned <strong>detection & prevention policies</strong>, analyzing telemetry and tracking <strong>lateral movement</strong>.</li>
                         <li>Engineered <strong>SOAR automation</strong> workflows, managing <strong>IOCs</strong> for overall SOC efficiency.</li>
-                        <li>Built automated <strong>SOC reporting tool</strong> to streamline daily client updates.</li>
+                        <li>Built automated <strong>SOC reporting tool</strong> to streamline daily client updates and reporting cadence.</li>
                     </ul>
                 </div>
             </div>
@@ -1087,7 +1212,7 @@
                     </div>
                     <div class="exp-role">Cybersecurity Research Intern</div>
                     <ul>
-                        <li>Developed <strong>StegIntel</strong> — AI-driven <strong>steganography detection</strong> tool using <strong>Random Forest</strong> and <strong>CNN</strong> models.</li>
+                        <li>Developed <strong>StegIntel</strong> (Steganography + Intelligence) — AI-driven <strong>steganography detection</strong> tool using <strong>Random Forest</strong> and <strong>CNN</strong> models.</li>
                         <li>Engineered <strong>LSB brute-force decoding</strong>, payload extraction, and automated forensic post-processing.</li>
                         <li>Achieved <strong>IEEE-INSECT 2026</strong> paper acceptance for the StegIntel research.</li>
                     </ul>
@@ -1306,46 +1431,100 @@
     </section>
 
     <!-- SKILLS -->
-    <section id="arsenal">
+    <section id="arsenal" class="skills-section">
         <div class="section-label" data-aos="fade-up">My Arsenal</div>
         <h2 data-aos="fade-up" data-aos-delay="50">Full <span class="dim">Inventory</span></h2>
 
         <div class="skills-container">
-            <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                <h3>Detection & Forensics Tools</h3>
+            <!-- Row 1 -->
+            <div class="skill-category cat-blue" data-aos="fade-up" data-aos-delay="100">
+                <div class="skill-category-header">
+                    <div class="skill-category-icon sc-blue"><i class="fas fa-crosshairs"></i></div>
+                    <h3>Detection & Response</h3>
+                </div>
                 <div class="skill-list">
-                    <span class="skill-pill">CrowdStrike Falcon (EDR, ITP)</span>
-                    <span class="skill-pill">Splunk SIEM</span>
-                    <span class="skill-pill">Wazuh</span>
+                    <span class="skill-pill">CrowdStrike Falcon</span>
+                    <span class="skill-pill">EDR / ITP / SIEM</span>
                     <span class="skill-pill">Trend Micro</span>
-                    <span class="skill-pill">Autopsy</span>
-                    <span class="skill-pill">FTK Imager</span>
-                    <span class="skill-pill">Wireshark</span>
-                    <span class="skill-pill">Tcpdump</span>
+                    <span class="skill-pill">Splunk</span>
+                    <span class="skill-pill">Wazuh</span>
+                    <span class="skill-pill">EDR Investigation</span>
+                    <span class="skill-pill">MITRE ATT&CK</span>
                 </div>
             </div>
 
-            <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                <h3>SOC & Framework Concepts</h3>
+            <div class="skill-category cat-green" data-aos="fade-up" data-aos-delay="150">
+                <div class="skill-category-header">
+                    <div class="skill-category-icon sc-green"><i class="fas fa-sitemap"></i></div>
+                    <h3>SOC Operations</h3>
+                </div>
                 <div class="skill-list">
                     <span class="skill-pill">Alert Triage (L1/L2)</span>
-                    <span class="skill-pill">MITRE ATT&CK</span>
-                    <span class="skill-pill">Process Tree Analysis</span>
-                    <span class="skill-pill">DFIR Workflow</span>
                     <span class="skill-pill">Incident Reporting</span>
-                    <span class="skill-pill">Fusion SOAR Automation</span>
+                    <span class="skill-pill">Detection Policy Tuning</span>
                     <span class="skill-pill">IOC Management</span>
+                    <span class="skill-pill">AD Monitoring</span>
+                    <span class="skill-pill">Endpoint Telemetry</span>
                 </div>
             </div>
 
-            <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
-                <h3>Offensive, Coding & Platforms</h3>
+            <div class="skill-category cat-purple" data-aos="fade-up" data-aos-delay="200">
+                <div class="skill-category-header">
+                    <div class="skill-category-icon sc-purple"><i class="fas fa-magnifying-glass"></i></div>
+                    <h3>Security & Forensics</h3>
+                </div>
                 <div class="skill-list">
-                    <span class="skill-pill">Nmap & Metasploit</span>
+                    <span class="skill-pill">DFIR Workflow</span>
+                    <span class="skill-pill">Malware Analysis</span>
+                    <span class="skill-pill">PE Studio</span>
+                    <span class="skill-pill">VirusTotal</span>
+                    <span class="skill-pill">Autopsy</span>
+                    <span class="skill-pill">FTK Imager</span>
+                    <span class="skill-pill">Log Analysis</span>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="skill-category cat-rose" data-aos="fade-up" data-aos-delay="250">
+                <div class="skill-category-header">
+                    <div class="skill-category-icon sc-rose"><i class="fas fa-skull-crossbones"></i></div>
+                    <h3>Offensive Foundations</h3>
+                </div>
+                <div class="skill-list">
+                    <span class="skill-pill">Nmap</span>
+                    <span class="skill-pill">Metasploit</span>
+                    <span class="skill-pill">SQLi / XSS</span>
+                    <span class="skill-pill">Web Vulnerabilities</span>
+                    <span class="skill-pill">Network Enumeration</span>
+                </div>
+            </div>
+
+            <div class="skill-category cat-cyan" data-aos="fade-up" data-aos-delay="300">
+                <div class="skill-category-header">
+                    <div class="skill-category-icon sc-cyan"><i class="fas fa-network-wired"></i></div>
+                    <h3>Networking</h3>
+                </div>
+                <div class="skill-list">
+                    <span class="skill-pill">Wireshark</span>
+                    <span class="skill-pill">TCP/IP Protocols</span>
+                    <span class="skill-pill">Tcpdump</span>
+                    <span class="skill-pill">Cross-Protocol Correlation</span>
+                    <span class="skill-pill">PCAP Analysis</span>
+                </div>
+            </div>
+
+            <div class="skill-category cat-amber" data-aos="fade-up" data-aos-delay="350">
+                <div class="skill-category-header">
+                    <div class="skill-category-icon sc-amber"><i class="fas fa-terminal"></i></div>
+                    <h3>Programming & Systems</h3>
+                </div>
+                <div class="skill-list">
                     <span class="skill-pill">Python</span>
-                    <span class="skill-pill">Bash & Linux</span>
+                    <span class="skill-pill">Bash</span>
                     <span class="skill-pill">C / C++</span>
                     <span class="skill-pill">SQL</span>
+                    <span class="skill-pill">Linux</span>
+                    <span class="skill-pill">Windows</span>
                     <span class="skill-pill">AWS</span>
                     <span class="skill-pill">Azure</span>
                 </div>
@@ -1358,15 +1537,15 @@
         <div class="section-label" style="justify-content: center;" data-aos="fade-up">Get In Touch</div>
         <h2 data-aos="fade-up" data-aos-delay="50">Let's <span class="dim">Connect</span></h2>
         <p class="contact-email" data-aos="fade-up" data-aos-delay="100">nikwadhwani2004@gmail.com</p>
-        <p class="contact-location" data-aos="fade-up" data-aos-delay="120">
-            Based in Pune, India | Open to Global Opportunities (UAE, Singapore, etc.)
+        <p class="contact-phone" data-aos="fade-up" data-aos-delay="120">
+            <i class="fas fa-phone"></i> +91 9422862174
         </p>
 
         <div class="contact-links" data-aos="fade-up" data-aos-delay="150">
-            <a href="https://github.com/" class="btn btn-outline" target="_blank" rel="noopener">
+            <a href="https://github.com/nikhil-wadhwani1" class="btn btn-outline" target="_blank" rel="noopener">
                 <i class="fab fa-github"></i> GitHub
             </a>
-            <a href="https://linkedin.com/in/nikhil-wadhwani" class="btn btn-outline" target="_blank" rel="noopener">
+            <a href="https://www.linkedin.com/in/nikhil-wadhwani01/" class="btn btn-outline" target="_blank" rel="noopener">
                 <i class="fab fa-linkedin-in"></i> LinkedIn
             </a>
         </div>
