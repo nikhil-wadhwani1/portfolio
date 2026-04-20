@@ -23,6 +23,7 @@
             --accent-green: #10b981;
             --accent-purple: #a78bfa;
             --accent-rose: #fb7185;
+            --accent-amber: #f59e0b;
             --text-main: #f3f4f6;
             --text-dim: #9ca3af;
             --border: rgba(255, 255, 255, 0.06);
@@ -128,7 +129,7 @@
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 28px;
             align-items: center;
         }
 
@@ -252,10 +253,15 @@
         .hero-subtitle {
             font-size: 1.15rem;
             color: var(--text-dim);
-            max-width: 580px;
+            max-width: 650px;
             margin-bottom: 40px;
             font-weight: 300;
             line-height: 1.8;
+        }
+
+        .hero-subtitle strong {
+            color: var(--text-main);
+            font-weight: 600;
         }
 
         .hero-cta {
@@ -388,10 +394,23 @@
         .exp-icon.green { background: rgba(16, 185, 129, 0.1); color: var(--accent-green); }
         .exp-icon.purple { background: rgba(167, 139, 250, 0.1); color: var(--accent-purple); }
 
+        .exp-content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4px;
+        }
+
         .exp-content h3 {
             font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 4px;
+        }
+
+        .exp-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            white-space: nowrap;
         }
 
         .exp-content .exp-role {
@@ -421,6 +440,124 @@
             color: var(--accent);
         }
 
+        .exp-content ul li strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* ===== EDUCATION & CERTS ===== */
+        .edu-certs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .info-panel {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .info-panel:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(17, 24, 39, 0.8);
+        }
+
+        .info-panel h3 {
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .info-panel h3 i {
+            color: var(--accent);
+        }
+
+        .edu-item {
+            margin-bottom: 20px;
+        }
+
+        .edu-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .edu-degree {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        .edu-school {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .edu-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .edu-focus-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .edu-focus-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            color: var(--accent);
+            letter-spacing: 0.5px;
+        }
+
+        .cert-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass);
+        }
+
+        .cert-icon {
+            color: var(--accent-green);
+            margin-top: 2px;
+        }
+
+        .cert-icon.pending {
+            color: var(--accent-amber);
+        }
+
+        .cert-details h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .cert-details p {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
         /* ===== PROJECT CARDS ===== */
         .projects-grid {
             display: grid;
@@ -438,6 +575,8 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card::after {
@@ -504,6 +643,12 @@
             font-size: 0.92rem;
             margin-bottom: 20px;
             line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .project-card p strong {
+            color: var(--text-main);
+            font-weight: 600;
         }
 
         .skill-tags {
@@ -574,6 +719,45 @@
             text-transform: uppercase;
         }
 
+        /* ===== RESEARCH HIGHLIGHT ===== */
+        .research-highlight {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px 36px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .research-highlight:hover {
+            border-color: var(--border-hover);
+            background: rgba(17, 24, 39, 0.8);
+        }
+
+        .research-highlight i {
+            font-size: 1.6rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .research-highlight h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .research-highlight p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .research-highlight p strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
         /* ===== LABS GRID ===== */
         .labs-grid {
             display: grid;
@@ -624,6 +808,11 @@
             color: var(--text-dim);
             font-size: 0.88rem;
             line-height: 1.7;
+        }
+
+        .lab-card p strong {
+            color: var(--text-main);
+            font-weight: 600;
         }
 
         /* ===== SKILLS SECTION ===== */
@@ -682,7 +871,13 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 1rem;
             color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+
+        .contact-location {
+            color: var(--text-dim);
             margin-bottom: 36px;
+            font-size: 0.9rem;
         }
 
         .contact-links {
@@ -702,6 +897,12 @@
         }
 
         /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .edu-certs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
                 padding: 0 6%;
@@ -731,6 +932,14 @@
             .exp-card {
                 grid-template-columns: 1fr;
                 gap: 16px;
+            }
+
+            .exp-content-header {
+                flex-direction: column;
+            }
+
+            .exp-date {
+                margin-top: 4px;
             }
 
             .project-card.flagship {
@@ -788,6 +997,7 @@
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
             <a href="#projects">Projects</a>
             <a href="#labs">Labs</a>
             <a href="#arsenal">Skills</a>
@@ -807,8 +1017,7 @@
         </h1>
 
         <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-            Cybersecurity student specializing in SOC operations, threat detection, and forensic analysis.
-            Building real-world tools like StegIntel and working on enterprise-grade security systems.
+            <strong>Cybersecurity</strong> student — <strong>SOC operations</strong>, <strong>threat detection</strong>, <strong>DFIR</strong>, and <strong>security tooling</strong>. Building real-world tools like <strong>StegIntel</strong>, automating <strong>SOC workflows</strong>, and securing <strong>enterprise-grade systems</strong>.
         </p>
 
         <div class="hero-cta" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
@@ -851,13 +1060,18 @@
                     <i class="fas fa-shield-halved"></i>
                 </div>
                 <div class="exp-content">
-                    <h3>Amazure Technologies</h3>
+                    <div class="exp-content-header">
+                        <h3>Amazure Technologies</h3>
+                        <span class="exp-date">Jan 2026 – Present</span>
+                    </div>
                     <div class="exp-role">Cybersecurity Intern (SOC)</div>
                     <ul>
-                        <li>SOC L1/L2 alert triage and investigations</li>
-                        <li>CrowdStrike Falcon EDR + identity detections</li>
-                        <li>Detection tuning & IOC management</li>
-                        <li>SOAR automation workflows</li>
+                        <li><strong>SOC L1/L2 alert triage</strong> and deep-dive <strong>EDR investigations</strong> (process trees, parent-child analysis).</li>
+                        <li>Endpoint & identity threats using <strong>CrowdStrike Falcon</strong>, <strong>Trend Micro</strong>, <strong>Splunk</strong>, and <strong>Wazuh</strong>.</li>
+                        <li><strong>Incident reporting</strong> and client-facing technical documentation of alerts & remediation workflows.</li>
+                        <li>Deployed and tuned <strong>detection & prevention policies</strong>, analyzing telemetry and tracking <strong>lateral movement</strong>.</li>
+                        <li>Engineered <strong>SOAR automation</strong> workflows, managing <strong>IOCs</strong> for overall SOC efficiency.</li>
+                        <li>Built automated <strong>SOC reporting tool</strong> to streamline daily client updates.</li>
                     </ul>
                 </div>
             </div>
@@ -867,12 +1081,15 @@
                     <i class="fas fa-microscope"></i>
                 </div>
                 <div class="exp-content">
-                    <h3>COEP Technological University</h3>
+                    <div class="exp-content-header">
+                        <h3>COEP Technological University</h3>
+                        <span class="exp-date">Summer 2025</span>
+                    </div>
                     <div class="exp-role">Cybersecurity Research Intern</div>
                     <ul>
-                        <li>Built StegIntel (AI-based steganography detection)</li>
-                        <li>IEEE-INSECT 2026 paper accepted</li>
-                        <li>LSB brute-force + payload extraction</li>
+                        <li>Developed <strong>StegIntel</strong> — AI-driven <strong>steganography detection</strong> tool using <strong>Random Forest</strong> and <strong>CNN</strong> models.</li>
+                        <li>Engineered <strong>LSB brute-force decoding</strong>, payload extraction, and automated forensic post-processing.</li>
+                        <li>Achieved <strong>IEEE-INSECT 2026</strong> paper acceptance for the StegIntel research.</li>
                     </ul>
                 </div>
             </div>
@@ -882,12 +1099,65 @@
                     <i class="fas fa-code"></i>
                 </div>
                 <div class="exp-content">
-                    <h3>Agrawal Creations</h3>
+                    <div class="exp-content-header">
+                        <h3>Agrawal Creations</h3>
+                        <span class="exp-date">July – Sept 2024</span>
+                    </div>
                     <div class="exp-role">Web Development Intern</div>
                     <ul>
-                        <li>Built secure admin panels (PHP + MySQL)</li>
-                        <li>Implemented SQLi/XSS protections</li>
+                        <li>Built secure admin panels using <strong>PHP</strong> + <strong>MySQL</strong> with <strong>authentication</strong> & input validation.</li>
+                        <li>Implemented <strong>secure coding practices</strong> to mitigate <strong>SQLi</strong> and <strong>XSS</strong> vulnerabilities.</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION & CERTS -->
+    <section id="education">
+        <div class="section-label" data-aos="fade-up">Academic & Credentials</div>
+        <h2 data-aos="fade-up" data-aos-delay="50">Education & <span class="dim">Certs</span></h2>
+
+        <div class="edu-certs-grid">
+            <div class="info-panel" data-aos="fade-right" data-aos-delay="100">
+                <h3><i class="fas fa-graduation-cap"></i> Academic Background</h3>
+                <div class="edu-item">
+                    <div class="edu-degree">B.Tech in Computer Science</div>
+                    <div class="edu-school">DY Patil International University, Pune</div>
+                    <div class="edu-meta">Expected Graduation: 2026</div>
+                    <div class="edu-focus-tags">
+                        <span class="edu-focus-tag">System Security</span>
+                        <span class="edu-focus-tag">Threat Detection</span>
+                        <span class="edu-focus-tag">Secure Development</span>
+                        <span class="edu-focus-tag">Cloud Security</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-panel" data-aos="fade-left" data-aos-delay="200">
+                <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                <div class="cert-list">
+                    <div class="cert-item">
+                        <i class="fas fa-check-circle cert-icon"></i>
+                        <div class="cert-details">
+                            <h4>Microsoft SC-900</h4>
+                            <p>Security, Compliance, and Identity Fundamentals</p>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-hourglass-half cert-icon pending"></i>
+                        <div class="cert-details">
+                            <h4>Hack The Box</h4>
+                            <p>Penetration Testing Path (In Progress)</p>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-hourglass-half cert-icon pending"></i>
+                        <div class="cert-details">
+                            <h4>AWS Cloud Practitioner</h4>
+                            <p>Amazon Web Services (In Progress)</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -907,12 +1177,13 @@
                     </div>
                     <h3>StegIntel</h3>
                     <p>
-                        AI-powered steganography detection tool with ML classification, LSB brute force,
-                        payload extraction, and forensic report generation.
+                        AI-powered <strong>steganography detection</strong> tool with <strong>Random Forest</strong> classification, <strong>LSB brute force</strong>,
+                        <strong>payload extraction</strong>, and automated <strong>forensic report generation</strong>. Accepted at <strong>IEEE-INSECT 2026</strong>.
                     </p>
                     <div class="skill-tags">
                         <span class="skill-tag">Python</span>
-                        <span class="skill-tag">ML</span>
+                        <span class="skill-tag">Steganography</span>
+                        <span class="skill-tag">Machine Learning</span>
                         <span class="skill-tag">Forensics</span>
                     </div>
                 </div>
@@ -927,29 +1198,61 @@
             <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="project-header">
                     <i class="fas fa-robot"></i>
+                    <span class="project-badge">Active</span>
                 </div>
-                <h3>SOC Automation Tool</h3>
+                <h3>SOC Automation Reporting</h3>
                 <p>
-                    Automates SOC reporting workflows and improves client communication efficiency.
+                    Automates <strong>SOC reporting workflows</strong> and <strong>client communication</strong>, reducing manual triage overhead and increasing data clarity.
                 </p>
                 <div class="skill-tags">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">Automation</span>
+                    <span class="skill-tag">SOC Ops</span>
                 </div>
             </div>
 
             <div class="project-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="project-header">
-                    <i class="fas fa-dumbbell"></i>
+                    <i class="fas fa-gamepad"></i>
                 </div>
-                <h3>Elite Motion</h3>
+                <h3>AI RL Snake Agent</h3>
                 <p>
-                    Full-stack sports management system with booking, authentication, and admin panel.
+                    Autonomous Snake game agent built with <strong>reinforcement learning</strong>. Custom <strong>reward logic</strong> and <strong>neural network</strong> training loops designed from scratch.
                 </p>
                 <div class="skill-tags">
-                    <span class="skill-tag">Full-Stack</span>
-                    <span class="skill-tag">Auth</span>
+                    <span class="skill-tag">AI/ML</span>
+                    <span class="skill-tag">Reinforcement Learning</span>
+                    <span class="skill-tag">Python</span>
                 </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="project-header">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h3>Elite Motion Platform</h3>
+                <p>
+                    Full-stack <strong>sports management</strong> system with booking, <strong>authentication</strong>, and secure <strong>admin panel</strong>.
+                </p>
+                <div class="skill-tags">
+                    <span class="skill-tag">PHP/MySQL</span>
+                    <span class="skill-tag">Auth</span>
+                    <span class="skill-tag">Web Dev</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+        <div class="section-label" data-aos="fade-up">Research & Recognition</div>
+        <h2 data-aos="fade-up" data-aos-delay="50">Research <span class="dim">Highlight</span></h2>
+
+        <div class="research-highlight" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-award"></i>
+            <div>
+                <h3>IEEE-INSECT 2026</h3>
+                <p><strong>StegIntel</strong> research paper accepted for presentation — combining <strong>AI-driven steganography detection</strong>, <strong>forensic analysis</strong>, and <strong>LSB payload extraction</strong> into a unified cybersecurity tool.</p>
             </div>
         </div>
     </section>
@@ -964,10 +1267,9 @@
                 <div class="lab-icon cyan">
                     <i class="fas fa-server"></i>
                 </div>
-                <h3>Active Directory Lab</h3>
+                <h3>Active Directory Monitoring</h3>
                 <p>
-                    Deployed enterprise AD environment with DNS, LDAP, Kerberos integration and
-                    cross-platform authentication.
+                    Deployed <strong>AD environments</strong> with <strong>DNS</strong>, <strong>LDAP</strong>, and <strong>Kerberos</strong>. Focused on detecting <strong>authentication anomalies</strong> and <strong>lateral movement</strong> tracking.
                 </p>
             </div>
 
@@ -977,7 +1279,7 @@
                 </div>
                 <h3>AdGuard DNS Sinkhole</h3>
                 <p>
-                    Implemented network-wide ad blocking using AdGuard Home with custom DNS filtering.
+                    Implemented network-wide <strong>ad blocking</strong> and <strong>telemetry sinkholing</strong> using <strong>AdGuard Home</strong> with custom domain filtering lists.
                 </p>
             </div>
 
@@ -985,9 +1287,9 @@
                 <div class="lab-icon violet">
                     <i class="fas fa-bug"></i>
                 </div>
-                <h3>Malware Analysis Lab</h3>
+                <h3>Digital Forensics & Malware</h3>
                 <p>
-                    Analyzed binaries using PE Studio and VirusTotal to understand malicious behavior.
+                    Conducted <strong>binary analysis</strong> and evidence extraction using <strong>PE Studio</strong>, <strong>VirusTotal</strong>, <strong>Autopsy</strong>, and <strong>FTK Imager</strong>.
                 </p>
             </div>
 
@@ -997,7 +1299,7 @@
                 </div>
                 <h3>Network Traffic Analysis</h3>
                 <p>
-                    Performed PCAP analysis using Wireshark and TCPDump to detect anomalies.
+                    <strong>Cross-protocol attack correlation</strong> and deep <strong>packet inspection</strong> using <strong>Wireshark</strong>, <strong>TCP/IP</strong>, and <strong>tcpdump</strong>.
                 </p>
             </div>
         </div>
@@ -1006,36 +1308,44 @@
     <!-- SKILLS -->
     <section id="arsenal">
         <div class="section-label" data-aos="fade-up">My Arsenal</div>
-        <h2 data-aos="fade-up" data-aos-delay="50">Technical <span class="dim">Skills</span></h2>
+        <h2 data-aos="fade-up" data-aos-delay="50">Full <span class="dim">Inventory</span></h2>
 
         <div class="skills-container">
             <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                <h3>Security Tools</h3>
+                <h3>Detection & Forensics Tools</h3>
                 <div class="skill-list">
-                    <span class="skill-pill">CrowdStrike Falcon</span>
-                    <span class="skill-pill">Splunk</span>
+                    <span class="skill-pill">CrowdStrike Falcon (EDR, ITP)</span>
+                    <span class="skill-pill">Splunk SIEM</span>
                     <span class="skill-pill">Wazuh</span>
-                    <span class="skill-pill">DFIR</span>
-                    <span class="skill-pill">Nmap</span>
-                    <span class="skill-pill">Metasploit</span>
+                    <span class="skill-pill">Trend Micro</span>
+                    <span class="skill-pill">Autopsy</span>
+                    <span class="skill-pill">FTK Imager</span>
                     <span class="skill-pill">Wireshark</span>
+                    <span class="skill-pill">Tcpdump</span>
                 </div>
             </div>
 
             <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                <h3>Languages</h3>
+                <h3>SOC & Framework Concepts</h3>
                 <div class="skill-list">
-                    <span class="skill-pill">Python</span>
-                    <span class="skill-pill">Bash</span>
-                    <span class="skill-pill">C/C++</span>
-                    <span class="skill-pill">SQL</span>
+                    <span class="skill-pill">Alert Triage (L1/L2)</span>
+                    <span class="skill-pill">MITRE ATT&CK</span>
+                    <span class="skill-pill">Process Tree Analysis</span>
+                    <span class="skill-pill">DFIR Workflow</span>
+                    <span class="skill-pill">Incident Reporting</span>
+                    <span class="skill-pill">Fusion SOAR Automation</span>
+                    <span class="skill-pill">IOC Management</span>
                 </div>
             </div>
 
             <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
-                <h3>Platforms</h3>
+                <h3>Offensive, Coding & Platforms</h3>
                 <div class="skill-list">
-                    <span class="skill-pill">Linux</span>
+                    <span class="skill-pill">Nmap & Metasploit</span>
+                    <span class="skill-pill">Python</span>
+                    <span class="skill-pill">Bash & Linux</span>
+                    <span class="skill-pill">C / C++</span>
+                    <span class="skill-pill">SQL</span>
                     <span class="skill-pill">AWS</span>
                     <span class="skill-pill">Azure</span>
                 </div>
@@ -1048,12 +1358,15 @@
         <div class="section-label" style="justify-content: center;" data-aos="fade-up">Get In Touch</div>
         <h2 data-aos="fade-up" data-aos-delay="50">Let's <span class="dim">Connect</span></h2>
         <p class="contact-email" data-aos="fade-up" data-aos-delay="100">nikwadhwani2004@gmail.com</p>
+        <p class="contact-location" data-aos="fade-up" data-aos-delay="120">
+            Based in Pune, India | Open to Global Opportunities (UAE, Singapore, etc.)
+        </p>
 
         <div class="contact-links" data-aos="fade-up" data-aos-delay="150">
             <a href="https://github.com/" class="btn btn-outline" target="_blank" rel="noopener">
                 <i class="fab fa-github"></i> GitHub
             </a>
-            <a href="https://linkedin.com/" class="btn btn-outline" target="_blank" rel="noopener">
+            <a href="https://linkedin.com/in/nikhil-wadhwani" class="btn btn-outline" target="_blank" rel="noopener">
                 <i class="fab fa-linkedin-in"></i> LinkedIn
             </a>
         </div>
